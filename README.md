@@ -6,6 +6,11 @@ A highly customizable ruby application framework for windows
 
 概况：
 
+依赖gem
+1、ffi-wingui-core-1.0.2
+2、ffi-1.11.1-x86-mingw32
+
+  
 1、本项目提供的CObj以树形结构的形式管理对象所有实例变量（属性）
 2、对象属性可视化管理
 3、继承自CObj的所有类的实例变量使用前都无需声明，会自动动态生成，且默认可读、可写，也可第一次使用到属性时或后期指定只读或者只写
