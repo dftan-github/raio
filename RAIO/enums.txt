@@ -1,0 +1,447 @@
+#encoding: utf-8
+=begin
+#所有enum的所有enum_item统一编号并影射到一个{}
+#然后在查找enum_item的真实值时使用以下方法
+#$enum_infos[enum_item][:val]来得到enum_item对应的真实值
+#所有enum_item项格式如下(其中val可以是0xnnn)
+#enum_item,val,name,title,tooltip,comment,help 
+#enum 或者 const打头
+
+
+enum Name    
+
+Unknown,-1
+MainFrm,,,主框架
+AppProp,,,程序属性
+DocProp,,,文档属性
+CmdProp,,,命令属性
+ActiveEntityProp,,,活动图元属性
+CmdLineHistory,,,命令行历史记录
+CmdLine,,,命令行
+DynPromptBar,,,动态提示栏
+StatusBar,,,状态栏
+Canvas,,,画布
+PermissionCheck,,,权限检查
+
+
+enum Fun
+ #定义命令类型
+Unknown,-1,
+      Test,
+      WinNormal,,,向下还原
+      WinMinimize,,,最小化
+      WinMaximize,,,最大化
+      WinClose,,,退出
+ 
+      RequestExitApp,,,
+      AxisHomeSearch,,,轴原点搜寻
+      AxisHomeSearch2,,,轴原点搜寻2
+      SetAxisPos,,,设置轴位置
+      TestCV,,,OpenCV测试
+      ResetVal,,,重置值
+      Export,,,导出
+
+
+
+enum ColorType
+UIBk,
+
+UIFont,0x1<<,
+  ValFail,
+ValOverU,
+ValOverL,
+
+ValNoStd,
+ValNoULimit,
+ValNoLLimit,
+
+const AlignSizeTo
+    ParentHeight,-0xffff_ffff
+     ParentWidth,
+TextHeight,
+TextWidth,
+
+enum Permission
+ 
+  Unknown,-1,
+  User,,,用户
+  Engine,,,工程
+  Admin,,,管理
+  Super,,,超级
+
+enum UnitType
+
+	#长度、角度单位类型统一是为了方便属性类
+
+	Length,,,长度单位a,
+	Angle,,,角度单位a
+	Time,,,时间单位
+  Vel,,,速度单位
+	MM,,,毫米
+	Inch,,,英寸
+	Mil,,,密尔
+
+	Du,,,度
+	HuDu,,,弧度
+	DFM,,,度分秒
+
+	US,,,微秒
+	MS,,,毫秒
+	S,,,秒
+	M,,,分
+	H,,,时
+
+
+	Pixel,,,像素
+	LengthPerPixel,,,
+
+	MMPerS,,,
+	MMPerS2,
+	PlusPerS,
+	PlusPerS2,
+	DuPerS,
+	DuPerS2,
+	Plus,
+	PlusPerMS,
+	PlusPerMS2,
+
+	FrameSpeedPerS,,,帧/s
+
+const EachWinFlags
+  IncThis,0x1<<,
+      IncUnVisible,
+      Sequence,
+const EachWinResult
+  Continue,0x1<<,
+      Break,
+      SkipChild,
+
+
+enum MotionLimit
+  #定义限位使能类型
+  Positive,
+      Negative,
+      All,
+
+
+enum MotionStatus
+  #定义状态类型
+Unknown,-1,
+  PRFing,,,规划运动中
+      DJDW,,,电机到位
+      DriveEnable,,,使能
+      HomeCapture,,,是否捕捉到了原点信号
+      PosLimit,0x10a,正限
+      NegLimit,,,负限
+      Alerm,,,报警
+
+enum MotionParamVal
+  Vel,,,速度
+  Acc,,,加速度
+  Smooth_Time,,,平滑时间
+
+enum XXX
+  a,0x1f+,,叶中
+bbb,
+ccc,
+ddd,0x10-
+eee,
+fff,
+enum MotionFlags
+  Unknown,-1,
+  DJDW,,,电机到位
+      PRFing,0x400,,规划运动中
+      DriveEnable,0x402,,驱动使能
+
+
+
+enum MotionStop
+
+  #定义停止模式
+  Emergency,,,急停
+      Smooth,,,平滑停止
+
+
+
+
+enum MotionEncodeSrc
+
+  #定义计数器来源
+  Encoder,
+      Profile,
+
+
+
+enum MotionCaptureMode
+  #定义原点捕获类型
+  Home,
+      Index,
+      Probe,
+
+
+enum MotionMode
+  #定义运动模式
+      Trap,
+      Jog,
+      Pt,
+      Gear,,,电子齿轮
+      Follow,
+      Pvt,
+
+
+
+enum MotionPlusCountSrc
+  #定义脉冲计数源
+  Encoder,,,经过编码器来计数
+      Count,,,运动卡内部计数(直接对发出的脉冲数进行计数)
+
+
+
+enum MotionPlusTrigger
+  #定义脉冲触发类型
+  L2H,,,上升沿触发
+      H2L,,,下降沿触发
+
+
+
+enum MotionParam
+  #定义运动参数类型
+Unknown,-1,
+      Manual,,,手动
+      Max,,,最高
+      Working,,,工作
+      HomeSearch,,,回原点
+      HomeSearch2,,,回原点(精)
+
+
+enum RespondCode
+#定义响应码
+Unknown,-1,,未知
+  Ok,,,Ok
+  Error,,,错误
+  Allow,,,允许
+  Continue,,,继续
+  Done,,,完成
+  Stop,,,停止
+  ForceBreak,,,强制中止
+   
+enum AlignType
+Unknown,-1,
+  Left,,,
+      Right,,,
+      Top,,,
+      Bottom,,,
+      Client,,,
+      None,,,
+
+enum SigType
+  Unknown,-1
+  PowerOn,
+      SysPause,
+
+ 
+
+enum CmdDoneCode
+Unknown,-1
+  Done,,,正常完成
+  Cancel,,,用户主动取消
+  ContionNotEnough,,,条件不足
+  Error,,,发生错误
+ 
+ enum GTS
+
+  FlagsDJDW,0x800,,电机到位
+  FlagsPRFING,0x400,,规划运动中
+  FlagsDRIVE_ENABLE,0x200,,驱动使能
+  FlagsNegLimit,0x40
+  FlagsPosLimit,0x20
+  FlagsAlerm,0x2
+
+const HitCode
+  NoWhere,0
+  Client,1
+  Left,10
+  Right,11
+  Top,12
+  Bottom,15
+  TopLeft,13
+  TopRight,14
+  BottomLeft,16
+  BottomRight,17
+  SplitterH,
+  SplitterV,
+
+
+const Workstep
+  End,-4
+  Help,
+      Name,
+      Unknown,
+  Start,
+
+enum ShowPropType
+  Unknown,-1
+  App,
+      Doc,
+      Cmd,
+
+
+
+enum EntityState
+  Normal,
+  Prompt,
+  Select,
+  SelectPrompt,
+
+enum IOType
+    GPI,
+        GPO,
+        PosLimit,
+        NegLimit,
+        Home,
+        Enable,
+        Alarm,
+        Clear,
+
+
+  enum IO
+    I0_QiGangUp,
+        I1_QiGangDown,
+        I2_ZenPanExitPortYouLiao,
+        I3_LiaoChaoYouLiao,
+        I4_LEDCheckResultZenXiang,
+        I5_LEDCheckResultFanXiang,
+        I6_,
+        I7_,
+        I8_,
+        I9_,
+        I10_,
+        I11_,
+        I12_,
+        I13_,
+        I14_,
+        I15_,
+
+        O0_,
+        O1_ZenKong1,
+        O2_ZenKong2,
+        O3_ZenKong3,
+        O4_ZenKong4,
+        O5_ZenKong5,
+        O6_ZenKong6,
+        O7_QiGangShangSheng,
+        O8_CheXi,
+        O9_CuiLiao,
+        O10_FeiLiao,
+        O11_LEDCheckDir,
+        O12_,
+        O13_,
+        O14_,
+        O15_,
+
+        Pos_Limit0_,
+        Pos_Limit1_,
+        Pos_Limit2_,
+        Pos_Limit3_,
+        Pos_Limit4_,
+        Pos_Limit5_,
+        Pos_Limit6_,
+        Pos_Limit7_,
+        Pos_Limit8_,
+        Pos_Limit9_,
+        Pos_Limit10_,
+        Pos_Limit11_,
+        Pos_Limit12_,
+        Pos_Limit13_,
+        Pos_Limit14_,
+        Pos_Limit15_,
+
+        Neg_Limit0_,
+        Neg_Limit1_,
+        Neg_Limit2_,
+        Neg_Limit3_,
+        Neg_Limit4_,
+        Neg_Limit5_,
+        Neg_Limit6_,
+        Neg_Limit7_,
+        Neg_Limit8_,
+        Neg_Limit9_,
+        Neg_Limit10_,
+        Neg_Limit11_,
+        Neg_Limit12_,
+        Neg_Limit13_,
+        Neg_Limit14_,
+        Neg_Limit15_,
+
+
+        Home_0_,
+        Home_1_,
+        Home_2_,
+        Home_3_,
+        Home_4_,
+        Home_5_,
+        Home_6_,
+        Home_7_,
+        Home_8_,
+        Home_9_,
+        Home_10_,
+        Home_11_,
+        Home_12_,
+        Home_13_,
+        Home_14_,
+        Home_15_,
+
+        Enable_0_,
+        Enable_1_,
+        Enable_2_,
+        Enable_3_,
+        Enable_4_,
+        Enable_5_,
+        Enable_6_,
+        Enable_7_,
+        Enable_8_,
+        Enable_9_,
+        Enable_10_,
+        Enable_11_,
+        Enable_12_,
+        Enable_13_,
+        Enable_14_,
+        Enable_15_,
+
+
+        Alarm_0_,
+        Alarm_1_,
+        Alarm_2_,
+        Alarm_3_,
+        Alarm_4_,
+        Alarm_5_,
+        Alarm_6_,
+        Alarm_7_,
+        Alarm_8_,
+        Alarm_9_,
+        Alarm_10_,
+        Alarm_11_,
+        Alarm_12_,
+        Alarm_13_,
+        Alarm_14_,
+        Alarm_15_,
+
+        Clear_0_,
+        Clear_1_,
+        Clear_2_,
+        Clear_3_,
+        Clear_4_,
+        Clear_5_,
+        Clear_6_,
+        Clear_7_,
+        Clear_8_,
+        Clear_9_,
+        Clear_10_,
+        Clear_11_,
+        Clear_12_,
+        Clear_13_,
+        Clear_14_,
+        Clear_15_,
+
+
+=end
