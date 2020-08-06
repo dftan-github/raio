@@ -1,7 +1,7 @@
 # raio
 # A highly customizable ruby application framework for windows
 
-## 偿试在windows7（x64)下基于ruby2.7制作高度可定制的应用程序框架（暂定第一个可用版本号为0.1.0.xxxx),版本号的定义尽量跟随开源标准的定义
+## 偿试在windows7（x64)下基于ruby2.7(x64) 制作高度可定制的应用程序框架（暂定第一个可用版本号为0.1.0.xxxx),版本号的定义尽量跟随开源标准的定义
 
 
 
