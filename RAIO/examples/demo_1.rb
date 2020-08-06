@@ -1,12 +1,11 @@
 #encoding:utf-8
 $source_mode=false
 $app_path=File.expand_path('..',File.dirname(__FILE__))+"/"
-
-#$app_path="f:/projects/ruby/raio/"
+ 
 #File.binwrite $app_path+"components/aio_require", RubyVM::InstructionSequence.compile(File.read $app_path+"ruby/aio_require.rb").to_binary 
 if $source_mode
 	#使用纯源码方式运行
-	require_relative 'ruby/aio_require'
+	require_relative '../ruby/aio_require'
 else
 	#使用虚拟码运行
 	RubyVM::InstructionSequence.load_from_binary(File.binread $app_path+"Components/aio_require").eval 	

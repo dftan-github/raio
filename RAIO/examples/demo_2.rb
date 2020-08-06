@@ -4,17 +4,15 @@ $app_path=File.expand_path('..',File.dirname(__FILE__))+"/"
 #File.binwrite $app_path+"components/aio_require", RubyVM::InstructionSequence.compile(File.read $app_path+"ruby/aio_require.rb").to_binary
 if $source_mode
     #使用纯源码方式运行
-    require_relative 'ruby/aio_require'
+    require_relative '../ruby/aio_require'
 else
     #使用虚拟码运行
     RubyVM::InstructionSequence.load_from_binary(File.binread $app_path+"Components/aio_require").eval     
 end
-#require_relative 'aio_require'
+ 
 
 aio_require 'main'
-#o=YAML.load_file("d:/config.txt")
-#File.write "d:/config2.txt",YAML::dump(o)
-#p "load done"
+ 
 class CApp
   def show_propertys(win_name,prop_type)
     parent=get_win(win_name)
