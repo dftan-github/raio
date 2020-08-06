@@ -46,7 +46,7 @@ p o.a.b.c.val   #=>123
 欢迎提出制作Demo的要求（比如仿xxx软件），从小Demo开始制作使用指南，提出制作Demo前先查看是否已经有类似Demo存在
 
 ## GUI：
-* GUI各控件由 <font face="黑体" color=green size=25>Direct Draw</font>  形式直接自绘，也可以嵌入win32控件
+* GUI各控件由 <font face="黑体" color=green size=5>Direct Draw</font>  形式直接自绘，也可以嵌入win32控件
 * GUI部分的消息路由例子：on_msg_lb_down->CCmd->App->control
 
 因为在制作过程中发现ruby的一些莫明的表现，例如内存暴涨（也不知道是Bug还是自己没用好），因此非常期望可以得到ruby-core小组的技术支持，以完成制作
