@@ -6,9 +6,9 @@
 
 ## 概况：
 
-### 依赖gem
-- ffi-wingui-core-1.0.2
-- ffi-1.11.1-x86-mingw32
+  ### 依赖gem
+  - ffi-wingui-core-1.0.2
+  - ffi-1.11.1-x86-mingw32
 
   
 - 本项目提供的CObj以树形结构的形式管理对象所有实例变量（属性）
