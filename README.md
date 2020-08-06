@@ -19,6 +19,8 @@
 
 
 # 例如：
+
+```ruby
 class CA<CObj
 end
 
@@ -27,6 +29,7 @@ o.a.b.c.val=123   #其中的a,b,c对应树形结点，每个节点都有val实�
 o.a.b.c.llimit.val=10   #限制o.a.b.c.val 最小值为10
 o.a.b.c.ulimit.val=200  #限制o.a.b.c.val 最大值为200
 p o.a.b.c.val   #=>123
+```
 
 
 ## 目前还只是雏形，使用编译过后的字节码形式分发。使用此形式而非源码发布，主要是基于以下原因
